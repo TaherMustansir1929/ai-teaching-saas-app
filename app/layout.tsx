@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 
+import { ClerkProvider } from "@clerk/nextjs";
+
 import Navbar from "@/components/Navbar";
 
 const bricolage = Bricolage_Grotesque({
@@ -20,11 +22,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning={true} data-lt-installed="true">
-      <body className={`${bricolage.variable} antialiased`}>
-        <Navbar />
-        {children}
-      </body>
-    </html>
+    <ClerkProvider appearance={{ variables: { colorPrimary: "#fe5933" } }}>
+      <html lang="en" suppressHydrationWarning={true} data-lt-installed="true">
+        <body className={`${bricolage.variable} antialiased`}>
+          <Navbar />
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
