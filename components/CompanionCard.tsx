@@ -20,7 +20,6 @@ const CompanionCard = ({
 }: CompanionCardProps) => {
   return (
     <article className="companion-card" style={{ backgroundColor: color }}>
-      Add commentMore actions
       <div className="flex justify-between items-center">
         <div className="subject-badge">{subject}</div>
 
